@@ -11,6 +11,8 @@ Exercises
 
 ## Set-up
 
+### Python packages
+
 Install the required packages in a virtual environment:
 ```bash
 python3 -m venv venv
@@ -19,4 +21,12 @@ pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-For visualization, install [MeshLab](https://www.meshlab.net/#download) or [CloudCompare](https://www.danielgm.net/cc/). 
+### Visualization
+For visualization, install [MeshLab](https://www.meshlab.net/#download) or [CloudCompare](https://www.danielgm.net/cc/).
+
+### PCL
+
+For Linux:
+```
+sudo apt install libpcl-dev
+```

@@ -15,7 +15,7 @@ if __name__ == "__main__":
     """
     # construct the argument parser and parse the arguments
     ap = argparse.ArgumentParser()
-    ap.add_argument("-p", "--path", type=str,
+    ap.add_argument("-p", "--path", type=str, default="cloud.ply",
                     help="path to point cloud")
     args = vars(ap.parse_args())
 
