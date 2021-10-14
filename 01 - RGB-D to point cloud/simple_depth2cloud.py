@@ -37,3 +37,5 @@ if __name__ == '__main__':
     cloud.points = o3d.utility.Vector3dVector(color_points[:,:3])
     cloud.colors = o3d.utility.Vector3dVector(color_points[:,3:])
     o3d.io.write_point_cloud("simple_cloud.ply", cloud, write_ascii=True)
+
+    print("Saved point cloud as simple_cloud.ply")

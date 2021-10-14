@@ -55,8 +55,6 @@ class CameraIntrinsics(object):
 if __name__ == '__main__':
     """
     Main function for executing the .py script.
-
-    Convert linemod dataset into correct representation for use in paper.
     """
     camera_intr = CameraIntrinsics()
 
@@ -71,3 +69,5 @@ if __name__ == '__main__':
     cloud.points = o3d.utility.Vector3dVector(color_points[:,:3])
     cloud.colors = o3d.utility.Vector3dVector(color_points[:,3:])
     o3d.io.write_point_cloud("advanced_cloud.ply", cloud)
+
+    print("Saved point cloud as advanced_cloud.ply")
