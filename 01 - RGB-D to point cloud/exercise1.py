@@ -31,7 +31,7 @@ o3d.io.write_point_cloud("exercise1.pcd", pcd, write_ascii=True, print_progress=
 # function that outputs a 3D coordinate given a depth value at a certain pixel location
 def pixel_to_point(depth_map, pixel_loc, K):
     u,v = pixel_loc
-    depth = depth_map[v,u]
+    depth = depth_map[v,u] # note: we index the vertical axis first!
 
     if depth > 0:
         fx_ = (1/K[0][0]) # inverse focal length fx
@@ -44,7 +44,7 @@ def pixel_to_point(depth_map, pixel_loc, K):
         y = depth*(v-v_0)*fy_
         z = depth
 
-        return np.array([x,y,z])/1000
+        return np.array([x,y,z])/1000 # note: scale by a factor of 1000 to match the scale of the Open3D point cloud!
     else:
         print("Invalid depth data for this point")
 
@@ -76,4 +76,5 @@ object_box.color = (0,1,0) # make it green
 coordinate_frame = o3d.geometry.TriangleMesh.create_coordinate_frame()
 o3d.visualization.draw_geometries([pcd, box, object_box, coordinate_frame])
 
+# only visualize the cropped point cloud
 o3d.visualization.draw_geometries([pcd_cropped, object_box])
