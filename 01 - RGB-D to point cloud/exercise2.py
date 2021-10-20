@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # load the point cloud from exercise 1
-pcd = o3d.io.read_point_cloud("exercise1.pcd")
+pcd = o3d.io.read_point_cloud("exercise1.ply")
 
 # plane fitting with RANSAC
 plane_model, inliers_indices = pcd.segment_plane(

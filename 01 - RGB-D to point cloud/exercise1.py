@@ -26,7 +26,7 @@ pcd = o3d.geometry.PointCloud.create_from_rgbd_image(rgbd_image, intrinsic_param
 
 # visualize and save the point coud
 o3d.visualization.draw_geometries([pcd])
-o3d.io.write_point_cloud("exercise1.pcd", pcd, write_ascii=True, print_progress=True)
+o3d.io.write_point_cloud("exercise1.ply", pcd, write_ascii=True, print_progress=True)
 
 # function that outputs a 3D coordinate given a depth value at a certain pixel location
 def pixel_to_point(depth_map, pixel_loc, K):
@@ -38,7 +38,6 @@ def pixel_to_point(depth_map, pixel_loc, K):
         fy_ = (1/K[1][1]) # inverse focal length fy
         u_0 = K[0][2] # optical center
         v_0 = K[1][2]
-
 
         x = depth*(u-u_0)*fx_
         y = depth*(v-v_0)*fy_
@@ -54,7 +53,7 @@ corner1 = (285,27)
 corner2 = (322,78)
 corner1_3d = pixel_to_point(depth_map=np.asarray(depth_raw), pixel_loc=corner1, K=intrinsic_params.intrinsic_matrix)
 corner2_3d = pixel_to_point(depth_map=np.asarray(depth_raw), pixel_loc=corner2, K=intrinsic_params.intrinsic_matrix)
-print(corner1_3d, corner2_3d)
+
 # define the depth range of the box
 corner1_3d[2] = 0
 corner2_3d[2] = 2
